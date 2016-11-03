@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103200634) do
+ActiveRecord::Schema.define(version: 20161103204907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,14 @@ ActiveRecord::Schema.define(version: 20161103200634) do
     t.integer  "game_index"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "type_efficacies", force: :cascade do |t|
+    t.integer  "damage_type_id", null: false
+    t.integer  "target_type_id", null: false
+    t.integer  "damage_factor"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "types", force: :cascade do |t|

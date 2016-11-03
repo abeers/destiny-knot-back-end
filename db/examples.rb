@@ -32,3 +32,7 @@ end
 CSV.foreach('lib/csv/pokemon_types.csv', headers: true) do |row|
   PokemonType.create!(row.to_hash)
 end
+
+CSV.foreach('lib/csv/type_efficacy.csv', headers: true) do |row|
+  TypeEfficacy.create!(row.to_hash)
+end
