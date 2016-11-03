@@ -1,3 +1,3 @@
 class PokemonSerializer < ActiveModel::Serializer
-  attributes :id, :identifier, :species_id, :height, :weight, :base_experience, :order, :is_default, :pokemon_stats, :abilities
+  attributes :identifier, :species_id, :types, :pokemon_stats, :abilities
 end
