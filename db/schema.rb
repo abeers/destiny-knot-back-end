@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103155313) do
+ActiveRecord::Schema.define(version: 20161103161033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 20161103155313) do
   end
 
   add_index "examples", ["user_id"], name: "index_examples_on_user_id", using: :btree
+
+  create_table "pokemon_stats", force: :cascade do |t|
+    t.integer  "pokemon_id"
+    t.integer  "stat_id"
+    t.integer  "base_stat"
+    t.integer  "effort"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "pokemon_stats", ["pokemon_id"], name: "index_pokemon_stats_on_pokemon_id", using: :btree
+  add_index "pokemon_stats", ["stat_id"], name: "index_pokemon_stats_on_stat_id", using: :btree
 
   create_table "pokemons", force: :cascade do |t|
     t.string   "identifier"
@@ -58,4 +70,6 @@ ActiveRecord::Schema.define(version: 20161103155313) do
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
   add_foreign_key "examples", "users"
+  add_foreign_key "pokemon_stats", "pokemons"
+  add_foreign_key "pokemon_stats", "stats"
 end
