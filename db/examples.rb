@@ -20,3 +20,7 @@ end
 CSV.foreach('lib/csv/abilities.csv', headers: true) do |row|
   Ability.create!(row.to_hash)
 end
+
+CSV.foreach('lib/csv/pokemon_abilities.csv', headers: true) do |row|
+  PokemonAbility.create!(row.to_hash)
+end
