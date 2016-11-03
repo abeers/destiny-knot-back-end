@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103150208) do
+ActiveRecord::Schema.define(version: 20161103155313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 20161103150208) do
     t.integer  "base_experience"
     t.integer  "order"
     t.integer  "is_default"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "stats", force: :cascade do |t|
+    t.integer  "damage_class_id"
+    t.string   "identifier"
+    t.integer  "is_battle_only"
+    t.integer  "game_index"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

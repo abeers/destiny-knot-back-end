@@ -8,3 +8,7 @@ require 'csv'
 CSV.foreach('lib/csv/pokemon.csv', headers: true) do |row|
   Pokemon.create!(row.to_hash)
 end
+
+CSV.foreach('lib/csv/stats.csv', headers: true) do |row|
+  Stat.create!(row.to_hash)
+end
