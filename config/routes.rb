@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :types, except: [:new, :edit]
   resources :pokemon_abilities, except: [:new, :edit]
   resources :abilities, except: [:new, :edit]
   resources :pokemon_stats, except: [:new, :edit]
