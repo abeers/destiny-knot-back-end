@@ -4,7 +4,11 @@ class PokemonsController < ApplicationController
   # GET /pokemons
   # GET /pokemons.json
   def index
-    @pokemons = Pokemon.all
+    if params[:identifier]
+      @pokemons = Pokemon.where(identifier: params[:identifier])
+    else
+      @pokemons = Pokemon.all
+    end
 
     render json: @pokemons
   end
