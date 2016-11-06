@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106170225) do
+ActiveRecord::Schema.define(version: 20161106172016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,16 @@ ActiveRecord::Schema.define(version: 20161106170225) do
     t.datetime "updated_at",      null: false
   end
 
+  create_table "team_members", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "pokemon_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "team_members", ["pokemon_id"], name: "index_team_members_on_pokemon_id", using: :btree
+  add_index "team_members", ["team_id"], name: "index_team_members_on_team_id", using: :btree
+
   create_table "teams", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -129,4 +139,6 @@ ActiveRecord::Schema.define(version: 20161106170225) do
   add_foreign_key "pokemon_stats", "stats"
   add_foreign_key "pokemon_types", "pokemons"
   add_foreign_key "pokemon_types", "types"
+  add_foreign_key "team_members", "pokemons"
+  add_foreign_key "team_members", "teams"
 end
