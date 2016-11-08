@@ -36,3 +36,20 @@ end
 CSV.foreach('lib/csv/type_efficacy.csv', headers: true) do |row|
   TypeEfficacy.create!(row.to_hash)
 end
+
+Team.create([
+              { name: "Solum's Core" },
+              { name: "Mothim is Awe-thim"}
+            ])
+
+TeamMember.create([
+                    { team_id: 1, pokemon_id: 561 },
+                    { team_id: 1, pokemon_id: 10009 },
+                    { team_id: 1, pokemon_id: 248 },
+                    { team_id: 1, pokemon_id: 212 },
+                    { team_id: 1, pokemon_id: 385 },
+                    { team_id: 1, pokemon_id: 445 },
+                    { team_id: 2, pokemon_id: 414 },
+                    { team_id: 2, pokemon_id: 573 },
+                    { team_id: 2, pokemon_id: 82 }
+                  ])
