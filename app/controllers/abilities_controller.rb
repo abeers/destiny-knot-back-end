@@ -1,4 +1,4 @@
-class AbilitiesController < ApplicationController
+class AbilitiesController < ProtectedController
   before_action :set_ability, only: [:show, :update, :destroy]
 
   # GET /abilities

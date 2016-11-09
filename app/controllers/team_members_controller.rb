@@ -1,5 +1,7 @@
-class TeamMembersController < ApplicationController
-  before_action :set_team_member, only: [:show, :update, :destroy]
+class TeamMembersController < ProtectedController
+  skip_before_action :authenticate, only: [:index, :show]
+  before_action :set_team_member, only: [:show]
+  before_action :set_user_team_member, only: [:update, :destroy]
 
   # GET /team_members
   # GET /team_members.json
@@ -18,7 +20,7 @@ class TeamMembersController < ApplicationController
   # POST /team_members
   # POST /team_members.json
   def create
-    @team_member = TeamMember.new(team_member_params)
+    @team_member = current_user.team_members.build(team_member_params)
 
     if @team_member.save
       render json: @team_member, status: :created, location: @team_member
@@ -49,6 +51,10 @@ class TeamMembersController < ApplicationController
 
   def set_team_member
     @team_member = TeamMember.find(params[:id])
+  end
+
+  def set_user_team_member
+    @team_member = current_user.team_members.find(params[:id])
   end
 
   def team_member_params

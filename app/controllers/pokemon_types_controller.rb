@@ -1,4 +1,4 @@
-class PokemonTypesController < ApplicationController
+class PokemonTypesController < ProtectedController
   before_action :set_pokemon_type, only: [:show, :update, :destroy]
 
   # GET /pokemon_types

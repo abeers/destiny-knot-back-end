@@ -1,4 +1,4 @@
-class StatsController < ApplicationController
+class StatsController < ProtectedController
   before_action :set_stat, only: [:show, :update, :destroy]
 
   # GET /stats

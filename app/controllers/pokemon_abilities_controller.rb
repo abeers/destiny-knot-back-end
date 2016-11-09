@@ -1,4 +1,4 @@
-class PokemonAbilitiesController < ApplicationController
+class PokemonAbilitiesController < ProtectedController
   before_action :set_pokemon_ability, only: [:show, :update, :destroy]
 
   # GET /pokemon_abilities

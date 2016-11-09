@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106172016) do
+ActiveRecord::Schema.define(version: 20161109040741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,16 +94,21 @@ ActiveRecord::Schema.define(version: 20161106172016) do
     t.integer  "pokemon_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_index "team_members", ["pokemon_id"], name: "index_team_members_on_pokemon_id", using: :btree
   add_index "team_members", ["team_id"], name: "index_team_members_on_team_id", using: :btree
+  add_index "team_members", ["user_id"], name: "index_team_members_on_user_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "teams", ["user_id"], name: "index_teams_on_user_id", using: :btree
 
   create_table "type_efficacies", force: :cascade do |t|
     t.integer  "damage_type_id", null: false
@@ -141,4 +146,6 @@ ActiveRecord::Schema.define(version: 20161106172016) do
   add_foreign_key "pokemon_types", "types"
   add_foreign_key "team_members", "pokemons"
   add_foreign_key "team_members", "teams"
+  add_foreign_key "team_members", "users"
+  add_foreign_key "teams", "users"
 end

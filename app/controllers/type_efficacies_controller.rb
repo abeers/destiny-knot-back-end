@@ -1,4 +1,4 @@
-class TypeEfficaciesController < ApplicationController
+class TypeEfficaciesController < ProtectedController
   before_action :set_type_efficacy, only: [:show, :update, :destroy]
 
   # GET /type_efficacies

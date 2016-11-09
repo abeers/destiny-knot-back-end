@@ -1,4 +1,4 @@
-class TypesController < ApplicationController
+class TypesController < ProtectedController
   before_action :set_type, only: [:show, :update, :destroy]
 
   # GET /types

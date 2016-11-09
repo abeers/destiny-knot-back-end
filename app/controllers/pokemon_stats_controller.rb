@@ -1,4 +1,4 @@
-class PokemonStatsController < ApplicationController
+class PokemonStatsController < ProtectedController
   before_action :set_pokemon_stat, only: [:show, :update, :destroy]
 
   # GET /pokemon_stats
