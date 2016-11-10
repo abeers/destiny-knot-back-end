@@ -1,4 +1,5 @@
 class PokemonStatsController < ProtectedController
+  skip_before_action :authenticate, only: [:index, :show]
   before_action :set_pokemon_stat, only: [:show, :update, :destroy]
 
   # GET /pokemon_stats

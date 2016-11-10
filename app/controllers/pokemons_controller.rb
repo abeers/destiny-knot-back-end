@@ -1,4 +1,5 @@
 class PokemonsController < ProtectedController
+  skip_before_action :authenticate, only: [:index, :show]
   before_action :set_pokemon, only: [:show, :update, :destroy]
 
   # GET /pokemons

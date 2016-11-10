@@ -1,4 +1,5 @@
 class TypeEfficaciesController < ProtectedController
+  skip_before_action :authenticate, only: [:index, :show]
   before_action :set_type_efficacy, only: [:show, :update, :destroy]
 
   # GET /type_efficacies

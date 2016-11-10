@@ -1,4 +1,5 @@
 class TypesController < ProtectedController
+  skip_before_action :authenticate, only: [:index, :show]
   before_action :set_type, only: [:show, :update, :destroy]
 
   # GET /types

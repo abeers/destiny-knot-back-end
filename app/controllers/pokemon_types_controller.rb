@@ -1,4 +1,5 @@
 class PokemonTypesController < ProtectedController
+  skip_before_action :authenticate, only: [:index, :show]
   before_action :set_pokemon_type, only: [:show, :update, :destroy]
 
   # GET /pokemon_types

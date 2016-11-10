@@ -1,7 +1,33 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
+
+CSV.foreach('lib/csv/pokemon.csv', headers: true) do |row|
+  Pokemon.create!(row.to_hash)
+end
+
+CSV.foreach('lib/csv/stats.csv', headers: true) do |row|
+  Stat.create!(row.to_hash)
+end
+
+CSV.foreach('lib/csv/pokemon_stats.csv', headers: true) do |row|
+  PokemonStat.create!(row.to_hash)
+end
+
+CSV.foreach('lib/csv/abilities.csv', headers: true) do |row|
+  Ability.create!(row.to_hash)
+end
+
+CSV.foreach('lib/csv/pokemon_abilities.csv', headers: true) do |row|
+  PokemonAbility.create!(row.to_hash)
+end
+
+CSV.foreach('lib/csv/types.csv', headers: true) do |row|
+  Type.create!(row.to_hash)
+end
+
+CSV.foreach('lib/csv/pokemon_types.csv', headers: true) do |row|
+  PokemonType.create!(row.to_hash)
+end
+
+CSV.foreach('lib/csv/type_efficacy.csv', headers: true) do |row|
+  TypeEfficacy.create!(row.to_hash)
+end

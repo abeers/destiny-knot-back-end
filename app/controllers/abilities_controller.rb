@@ -1,4 +1,5 @@
 class AbilitiesController < ProtectedController
+  skip_before_action :authenticate, only: [:index, :show]
   before_action :set_ability, only: [:show, :update, :destroy]
 
   # GET /abilities
